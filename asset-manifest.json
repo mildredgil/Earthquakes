@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Earthquakes/static/css/main.ecb66ff4.chunk.css",
-    "main.js": "/Earthquakes/static/js/main.0b85b972.chunk.js",
-    "main.js.map": "/Earthquakes/static/js/main.0b85b972.chunk.js.map",
+    "main.js": "/Earthquakes/static/js/main.50796461.chunk.js",
+    "main.js.map": "/Earthquakes/static/js/main.50796461.chunk.js.map",
     "runtime-main.js": "/Earthquakes/static/js/runtime-main.fa72c26c.js",
     "runtime-main.js.map": "/Earthquakes/static/js/runtime-main.fa72c26c.js.map",
-    "static/js/2.db88b51e.chunk.js": "/Earthquakes/static/js/2.db88b51e.chunk.js",
-    "static/js/2.db88b51e.chunk.js.map": "/Earthquakes/static/js/2.db88b51e.chunk.js.map",
+    "static/js/2.0f6d1ca3.chunk.js": "/Earthquakes/static/js/2.0f6d1ca3.chunk.js",
+    "static/js/2.0f6d1ca3.chunk.js.map": "/Earthquakes/static/js/2.0f6d1ca3.chunk.js.map",
     "index.html": "/Earthquakes/index.html",
-    "precache-manifest.4b898022827e6b6aad4a0185996125c2.js": "/Earthquakes/precache-manifest.4b898022827e6b6aad4a0185996125c2.js",
+    "precache-manifest.51a0a1a97875108a99f22cfb92ecad00.js": "/Earthquakes/precache-manifest.51a0a1a97875108a99f22cfb92ecad00.js",
     "service-worker.js": "/Earthquakes/service-worker.js",
     "static/css/main.ecb66ff4.chunk.css.map": "/Earthquakes/static/css/main.ecb66ff4.chunk.css.map",
-    "static/js/2.db88b51e.chunk.js.LICENSE.txt": "/Earthquakes/static/js/2.db88b51e.chunk.js.LICENSE.txt"
+    "static/js/2.0f6d1ca3.chunk.js.LICENSE.txt": "/Earthquakes/static/js/2.0f6d1ca3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fa72c26c.js",
-    "static/js/2.db88b51e.chunk.js",
+    "static/js/2.0f6d1ca3.chunk.js",
     "static/css/main.ecb66ff4.chunk.css",
-    "static/js/main.0b85b972.chunk.js"
+    "static/js/main.50796461.chunk.js"
   ]
 }
