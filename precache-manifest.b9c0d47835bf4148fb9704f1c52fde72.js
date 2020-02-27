@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "842f16975b9d6461d0a89901614d639b",
+    "revision": "57ad799d7238be625dd18f8770a1912d",
     "url": "/Earthquakes/index.html"
   },
   {
-    "revision": "1609df57f11d6f42bba1",
+    "revision": "e424716a596a47d8bd2b",
     "url": "/Earthquakes/static/css/main.41b87c88.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Earthquakes/static/js/2.f809098a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1609df57f11d6f42bba1",
-    "url": "/Earthquakes/static/js/main.69149c9e.chunk.js"
+    "revision": "e424716a596a47d8bd2b",
+    "url": "/Earthquakes/static/js/main.bd3ddd9c.chunk.js"
   },
   {
     "revision": "d39c84019c3508f069d8",
