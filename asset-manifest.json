@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Earthquakes/static/css/main.9d2a3ef2.chunk.css",
+    "main.css": "/Earthquakes/static/css/main.41b87c88.chunk.css",
     "main.js": "/Earthquakes/static/js/main.69149c9e.chunk.js",
     "main.js.map": "/Earthquakes/static/js/main.69149c9e.chunk.js.map",
     "runtime-main.js": "/Earthquakes/static/js/runtime-main.fa72c26c.js",
@@ -8,15 +8,15 @@
     "static/js/2.f809098a.chunk.js": "/Earthquakes/static/js/2.f809098a.chunk.js",
     "static/js/2.f809098a.chunk.js.map": "/Earthquakes/static/js/2.f809098a.chunk.js.map",
     "index.html": "/Earthquakes/index.html",
-    "precache-manifest.27eb0bdbd21e3acb89fa246728f1bab0.js": "/Earthquakes/precache-manifest.27eb0bdbd21e3acb89fa246728f1bab0.js",
+    "precache-manifest.0710d20a52db738b3a07dcc862335974.js": "/Earthquakes/precache-manifest.0710d20a52db738b3a07dcc862335974.js",
     "service-worker.js": "/Earthquakes/service-worker.js",
-    "static/css/main.9d2a3ef2.chunk.css.map": "/Earthquakes/static/css/main.9d2a3ef2.chunk.css.map",
+    "static/css/main.41b87c88.chunk.css.map": "/Earthquakes/static/css/main.41b87c88.chunk.css.map",
     "static/js/2.f809098a.chunk.js.LICENSE.txt": "/Earthquakes/static/js/2.f809098a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fa72c26c.js",
     "static/js/2.f809098a.chunk.js",
-    "static/css/main.9d2a3ef2.chunk.css",
+    "static/css/main.41b87c88.chunk.css",
     "static/js/main.69149c9e.chunk.js"
   ]
 }
