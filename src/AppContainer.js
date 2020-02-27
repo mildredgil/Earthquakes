@@ -64,7 +64,7 @@ const useApp = () => {
     let west   =   bounds.getSouthWest().lng();   
     
     fetch(
-      'http://api.geonames.org/earthquakesJSON?north='+ north + 
+      'https://secure.geonames.org/earthquakesJSON?north='+ north + 
       '&south=' + south + 
       '&east=' + east + 
       '&west=' + west + 
@@ -79,14 +79,14 @@ const useApp = () => {
 
   const get10LastYear = () => {
     let date = new Date();
-    fetch('http://api.geonames.org/earthquakesJSON?north=90&south=-90&east=180&west=-180&maxRows=10&date=' + 
-    (date.getFullYear() - 1) + '-' + 
+    fetch('https://secure.geonames.org/earthquakesJSON?north=90&south=-90&east=180&west=-180&minMagnitude=5&maxRows=500&date=' + 
+    date.getFullYear() + '-' + 
     (date.getMonth()  < 9 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-' + 
     date.getDate() + 
     '&username=mildredgil')
     .then(res => res.json())
     .then((data) => {
-      setMarkersData(data.earthquakes);
+      setMarkersData(data.earthquakes.sort(function(a, b){return b.magnitude - a.magnitude}).slice(0, 10));
     })
     setZoom(2);
   }
