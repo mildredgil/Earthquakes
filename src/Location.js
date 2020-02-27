@@ -4,7 +4,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import parse from 'autosuggest-highlight/parse';
 import {AppContext} from './AppContext';
 
@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Location = () => {
-  const classes = useStyles();
+const Location = ({classes}) => {
+  const classesIcon = useStyles();
   const {
     handleChange,
     onChangeValue,
@@ -25,7 +25,7 @@ const Location = () => {
   return (
     <Autocomplete
       id="google-map-demo"
-      style={{ width: '75%', margin: '20px 20px 20px 10px' }}
+      className={classes.autocomplete}
       getOptionLabel={option => (typeof option === 'string' ? option : option.description)}
       filterOptions={x => x}
       options={options}
@@ -52,7 +52,7 @@ const Location = () => {
         return (
           <Grid container alignItems="center">
             <Grid item>
-              <LocationOnIcon className={classes.icon} />
+              <LocationOnIcon className={classesIcon.icon} />
             </Grid>
             <Grid item xs>
               {parts.map((part, index) => (
@@ -72,4 +72,18 @@ const Location = () => {
   );
 };
 
-export default Location;
+const styles = () => ({
+  autocomplete: {
+    width: '75%', 
+    margin: '20px 20px 20px 10px' 
+  },
+
+  [`@media (max-width: ${1000}px)`]: {
+    autocomplete: {
+      width: '100%', 
+      margin: '10px 0px' 
+    }
+  }
+});
+
+export default withStyles(styles)(Location);

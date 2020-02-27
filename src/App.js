@@ -56,8 +56,25 @@ const styles = () => ({
   },
   starIcon: {
     paddingRight: '5px'
-  }
+  },
 
+  [`@media (max-width: ${1000}px)`]: {
+    header: {
+      display: 'block',
+      width: '80%',
+      margin: 'auto'
+    }, 
+
+    counter: {
+      display: 'block',
+      margin: '10px 0px' 
+    },
+
+    star: {
+      display: 'block',
+      margin: '10px 0px' 
+    },
+  }
 });
 
 export default withStyles(styles)(App);
