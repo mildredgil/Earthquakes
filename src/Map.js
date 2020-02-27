@@ -1,37 +1,59 @@
 import React from 'react';
-import {Map, Marker, GoogleApiWrapper, Polygon} from 'google-maps-react';
- 
-export class MapContainer extends React.Component {
-  constructor(props) {
-    super(props);
+import {Map, Marker} from 'google-maps-react';
+import {AppContext} from './AppContext';
+import { withStyles } from '@material-ui/core/styles';
 
-    this.state = {
-      bounds: props.bounds
-    }
-  }
+const MapContainer = ({classes}) => {
+  const {
+    state,
+    google,
+    markersData,
+    zoom,
+    onReadyMap
+  } = React.useContext(AppContext);
 
-  render() {
-    return (
-      <Map google={this.props.google} zoom={14}
-      style={{position: 'relative',
-      margin: 'auto',
-      width: '50%',
-      height: '500px'}}
-      
-      initialCenter={{
-        lat: 40.854885,
-        lng: -88.081807
-      }}
+  let markerUrlGreen = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+  let markerUrlYellow = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+  let markerUrlRed = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+  
+  return (
+      <Map google={google} zoom={zoom}
+      onReady={onReadyMap}
+      className={classes.map}
+      center={{lat: state.initialLat, lng: state.initialLng}}
       >
-        <Marker
-          title={'The marker`s title will appear as a tooltip.'}
-          name={'SOMA'}
-          position={{lat: 40.854885, lng: -88.081807}} />
+        {markersData.length > 0 && 
+          markersData.map(m => {
+            var url = null;
+            if(m.magnitude < 3) {
+              url = markerUrlGreen;
+            } else if(m.magnitude < 6) {
+              url = markerUrlYellow;
+            } else {
+              url = markerUrlRed;
+            }
+
+            return (
+            <Marker
+              position={{ lat: m.lat, lng: m.lng }}
+              title={"magnitude: " + m.magnitude}
+              data={m}
+              icon={{
+                url: url,
+                anchor: new google.maps.Point(32,32),
+                scaledSize: new google.maps.Size(32,32)
+              }}
+              />
+            )
+          })}
       </Map>
-    );
-  }
+  );
 }
+
+const styles = () => ({
+  map: {
+    height: '85vh !important'
+  }
+});
  
-export default GoogleApiWrapper({
-  apiKey: ('AIzaSyD5QaK4xhlY1ZTgwvm8wmiy86NYSzRemmI')
-})(MapContainer)
+export default withStyles(styles)(MapContainer);

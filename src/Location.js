@@ -1,44 +1,75 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
-import Button from '@material-ui/core/Button';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import parse from 'autosuggest-highlight/parse';
+import {AppContext} from './AppContext';
 
-const Location = ({ classes }) => {
-  
-  return (
-    <div className={classes.location}>
-      <TextField
-        id="input-with-icon-textfield"
-        label="City"
-        fullWidth
-        className={classes.textfield}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <RoomOutlinedIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
-      <Button className={classes.button} variant="contained" color="primary">
-        Show
-      </Button>
-    </div>
-  );
-}
-
-const styles = () => ({
-  location: {
-    width: '85%',
-    display: 'flex'
+const useStyles = makeStyles(theme => ({
+  icon: {
+    color: theme.palette.text.secondary,
+    marginRight: theme.spacing(2),
   },
-  
-  textfield: {
-    marginRight: '20px'
-  }
+}));
 
-});
+const Location = () => {
+  const classes = useStyles();
+  const {
+    handleChange,
+    onChangeValue,
+    options
+  } = React.useContext(AppContext);
+  return (
+    <Autocomplete
+      id="google-map-demo"
+      style={{ width: '75%', margin: '20px 20px 20px 10px' }}
+      getOptionLabel={option => (typeof option === 'string' ? option : option.description)}
+      filterOptions={x => x}
+      options={options}
+      autoComplete
+      includeInputInList
+      disableOpenOnFocus
+      onChange={onChangeValue}
+      renderInput={params => (
+        <TextField
+          {...params}
+          label="Add a location"
+          variant="outlined"
+          fullWidth
+          onChange={handleChange}
+        />
+      )}
+      renderOption={option => {
+        const matches = option.structured_formatting.main_text_matched_substrings;
+        const parts = parse(
+          option.structured_formatting.main_text,
+          matches.map(match => [match.offset, match.offset + match.length]),
+        );
 
-export default withStyles(styles)(Location);
+        return (
+          <Grid container alignItems="center">
+            <Grid item>
+              <LocationOnIcon className={classes.icon} />
+            </Grid>
+            <Grid item xs>
+              {parts.map((part, index) => (
+                <span key={index} style={{ fontWeight: part.highlight ? 700 : 400 }}>
+                  {part.text}
+                </span>
+              ))}
+
+              <Typography variant="body2" color="textSecondary">
+                {option.structured_formatting.secondary_text}
+              </Typography>
+            </Grid>
+          </Grid>
+        )
+      }}
+    />
+  );
+};
+
+export default Location;
